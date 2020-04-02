@@ -1,14 +1,12 @@
-var converthex = function(hex){
-    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  return result ? {
-    r: parseInt(result[1], 16),
-    g: parseInt(result[2], 16),
-    b: parseInt(result[3], 16)
-  } : null;
-}
-console.log(converthex(process.argv[2]));
-
-var convertrgb = function (r, g, b) {
-   return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+const my = require('./calculate.js');
+var answer1 = process.argv[2];
+var answer2 = process.argv[3];
+var r = parseInt(process.argv[2])
+var g = parseInt(process.argv[3])
+var b = parseInt(process.argv[4])
+if (answer1 === "hex"){
+     console.log(my.converthex(answer2));
  }
- console.log(convertrgb(255, 255, 255));
+ else {
+     console.log(my.convertrgb(r,g,b));
+ }
